@@ -1,3 +1,7 @@
+svg{
+    display: flex;
+}
+
 path {
     stroke: #E3CCAE;
 }
