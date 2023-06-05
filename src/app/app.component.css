@@ -13,10 +13,10 @@ body{
     padding: 30px;
 }
 
- 
-.test{
+ p{
     color: #E3CCAE;
-}
+ }
+
 
 .instruction-div{
     justify-content: center;

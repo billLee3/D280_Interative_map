@@ -17,3 +17,12 @@ path:hover{
 .selected-path:hover{
     fill: #10316B;
 }
+
+p{
+    color: #E3CCAE;
+}
+
+.instructional-div{
+    justify-content: center;
+    align-items: center;
+}

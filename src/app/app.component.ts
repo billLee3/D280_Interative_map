@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'interactive_map';
+  countryName: string = '';
+  countryCapital: string = '';
+  countryRegion: string = '';
+  countryIncomeLevel: string = '';
+  countryLatitude: string = '';
+  countryLongitude: string = '';
+
+  addCountry(newCountryName: string){
+    this.countryName = newCountryName;
+  }
+
 }
