@@ -9,3 +9,11 @@ path {
 path:hover{
     fill: #B8621B;
 }
+
+.selected-path{
+    fill: #10316B;
+}
+
+.selected-path:hover{
+    fill: #10316B;
+}
