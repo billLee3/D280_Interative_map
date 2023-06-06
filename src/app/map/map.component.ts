@@ -15,6 +15,8 @@ export class MapComponent {
   countryIncomeLevel: string = '';
   countryLatitude: string = '';
   countryLongitude: string = '';
+  countryNames: string[] = [];
+  
   //Gathered from StackOverflow at the following link: https://stackoverflow.com/questions/41609937/how-to-bind-event-listener-for-rendered-elements-in-angular-2
   //Starting down the route of adding a click event to every path element but determined that there had to be a more effecient solution and found this. 
   constructor(private elementRef:ElementRef, private worldBankApi: WorldBankAPIService) { }
@@ -25,20 +27,17 @@ export class MapComponent {
     const paths = image.querySelectorAll('path');
     //Looping through each path to ensure that the click listener is applied. 
     paths.forEach((element: SVGPathElement) => {
-      element.addEventListener('click', this.onClick.bind(this))
+      element.addEventListener('click', this.onClick.bind(this));
     });
-    
+    this.getAllCountryNames();
   }
     
-  @Output() newCountryNameEvent = new EventEmitter<string>();
-  @Output() newCapitalCityEvent = new EventEmitter<string>();
-  @Output() newCountryRegionEvent = new EventEmitter<string>();
-  @Output() newCountryIncomeLevelEvent = new EventEmitter<string>();
-  @Output() newCountryLatEvent = new EventEmitter<string>();
-  @Output() newCountryLongEvent = new EventEmitter<string>();
+  
+ 
 
+  //API Call is based on 2 letter ISO Code not country name so went with the ISO to get the country information. 
 
-
+  //one method that accepts a country id as an input parameter that returns additional information gathered from the API for the selected country
   onClick(event: MouseEvent){
     const selectedCountry = event.target as SVGPathElement;
     
@@ -65,9 +64,23 @@ export class MapComponent {
         // console.log(element[1][0].latitude)
         // console.log(element[1][0].longitude)
       })
+      ;
+      
     }
     
-
+    getAllCountryNames(){
+      const image = this.elementRef.nativeElement.querySelector('svg');
+      const paths = image.querySelectorAll('path');
+     //Looping through each path to ensure that the click listener is applied. 
+      paths.forEach((element: SVGPathElement) => {
+        var title = element.getAttribute("title");
+        var iso = element.getAttribute("id");
+        if (title !== null){
+          
+          this.countryNames.push(title)
+        }
+      });
+    }
     
     
     

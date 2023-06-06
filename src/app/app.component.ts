@@ -13,8 +13,6 @@ export class AppComponent {
   countryLatitude: string = '';
   countryLongitude: string = '';
 
-  addCountry(newCountryName: string){
-    this.countryName = newCountryName;
-  }
+  
 
 }
