@@ -6,13 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  countryName: string = '';
-  countryCapital: string = '';
-  countryRegion: string = '';
-  countryIncomeLevel: string = '';
-  countryLatitude: string = '';
-  countryLongitude: string = '';
-
   
-
 }
